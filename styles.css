@@ -1,1 +1,151 @@
 /* Write your CSS here! */
+body { 
+    margin: 8px;;                   /* no white border around browser window */
+    font-family: sans-serif;    /* no tails on the font like Times New Roman */
+
+    background-color: #EEEEEE;  
+}
+#titleNav {
+
+    padding: 0.5rem;
+    padding-top: 1rem;
+
+    /* fix to top */
+    /* elements that have fixed position are removed from the flow, then placed on the page 
+       according to top/bottom, left/right with respect to the browser's edges. */
+    position: fixed;
+    top: 0rem;
+    width: 100%; /* fixed elements do not have default 100% behavior */
+    z-index:1;   /* with fixed, DOM ele's can be in same spot, so higher z-index is 'on top'. 
+                    Make sure titleNav is on top of content, so give it a higher z-index
+                    (than the content which has default z-index of 0). */
+
+}
+#testP,.funParagraph{
+    font-style: oblique ;
+    font-display: block;
+    font-size: large;
+    
+}
+
+
+/* Styling that the titleNav and footer share. */
+#titleNav, #footer {
+    background-color: hsl(263, 46%, 51%);
+
+    /* give a little "3D"  effect to the edges of titleNav and footer */
+    box-shadow: 0px 0px 5px black; 
+}
+#mainHeading {
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 0.2rem; /* spaces out letters a bit */
+    white-space: nowrap;  /* don't allow the title to wrap */
+    color: red;
+}
+
+#nav {
+    font-size: 1rem;
+    font-weight: bold;
+    padding-top: 1rem;
+    padding-right: 1rem;
+    text-align: right;
+    white-space: nowrap;  /* don't allow nav links to wrap */
+    color: red;
+}
+
+#content {
+    font-size: 1rem;
+    line-height: 1.5rem;
+
+    /* dont allow fixed titleNav to cover up top of content */
+    margin-top: 6rem;
+
+    /* dont allow fixed footer to cover up bottom of content */
+    margin-bottom: 3.5rem;
+}
+
+
+#footer {
+
+    /* Fix the footer to bottom and make sure (z-index) it's on top of content */
+    position: fixed; 
+    bottom:0rem;
+    width: 100%; /* fixed elements loose the 100% width default behavior */
+    z-index: 1;
+
+    padding: 0.5rem;
+    font-size: 1rem;
+    text-align: center;
+
+}
+            
+            /* here I place any Consumer styling (my preferences) that are not part of 
+               the responsive row behavior, e.g., what color do I want on the responsiveRows, 
+               what spacing do I want between the responsiveRows. 
+            
+            */
+            
+            .responsiveRow{
+                background-color:  #DDDDEE;             /* this is the color of rows that hold text and images. */
+                box-shadow: 0rem 0rem 0.25rem #AAAAAA;  /* give "3D"  effect to the edges */
+                margin-bottom: 1rem;                    /* the space between rows */
+            }
+
+            .responsiveRow img {
+                border-radius: 0.5rem;
+                box-shadow: 0.25rem  0.25rem 0.25rem grey;
+            }
+            
+            .responsiveRow, .responsiveRow * {
+                box-sizing: border-box;  
+            }
+            
+            .responsiveRow {  /* In mobile, a responsiveRow contains a single column, 
+                                 but in desktop (see the media query), it will become 
+                                 multi column. Inside of a responsiveRow, try to specify column 
+                                 widths that add up to 100%, but if it adds up to more (like 
+                                 you specified one column as 75% and another also 75%), the 
+                                 browser will just show those columns proportionally (so 50% each) 
+                                 and there will be no wrapping of elements within the responsiveRow. */
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                padding: 0.5rem; 
+            }
+            
+            .responsiveRow .column {
+                padding: 0.5rem; 
+                width: 100%;
+            }
+            
+            .responsiveRow .column img { /* images will fill their container */
+                width:100%;
+            
+            }
+            
+            
+            /* desktop only */
+            @media only screen and (min-width: 40rem) { 
+            
+                .responsiveRow { 
+                    flex-direction: row;
+                }
+            
+                
+                .responsiveRow .column25 {
+                    width: 25%;
+                }
+                .responsiveRow .column33 {
+                    width: 33%;
+                }
+                .responsiveRow .column50 {
+                    width: 50%;
+                }
+                .responsiveRow .column66 {
+                    width: 66%;
+                }
+                .responsiveRow .column75 {
+                    width: 75%;
+                }
+            }
