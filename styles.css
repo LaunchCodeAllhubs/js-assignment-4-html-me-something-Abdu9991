@@ -25,9 +25,11 @@ body {
     font-style: oblique ;
     font-display: block;
     font-size: large;
-    
+    text-indent: 40px;
 }
-
+a {
+    color: rgb(28, 7, 219);
+}
 
 /* Styling that the titleNav and footer share. */
 #titleNav, #footer {
